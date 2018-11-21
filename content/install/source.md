@@ -48,7 +48,7 @@ The main Ghost repository contains the full Ghost package, including the Admin c
 
 ```bash
 # First clone Ghost and make it your working dir
-git clone git@github.com:TryGhost/Ghost.git && cd Ghost
+git clone --recurse-submodules git@github.com:TryGhost/Ghost.git && cd Ghost
 ```
 
 #### Properly rename your references
@@ -69,13 +69,16 @@ git remote add origin git@github.com:<YourUsername>/Ghost.git
 Because Ghost-Admin is a submodule repository of the main Ghost repository, the same steps need to be repeated to configure Git here, too.
 
 ```bash
-# Switch to Ghost-Admin dir and clone it. Don't forget the '.' at the end
-cd core/client && git clone git@github.com:TryGhost/Ghost-Admin.git .
+# Switch to Ghost-Admin dir
+cd core/client
 ```
 
 #### Properly rename your references again
 
 ```bash
+# Rename orgin to upstream for the admin repo
+git remote rename origin upstream
+
 # Ensure admin also has the correct path
 git remote set-url upstream git@github.com:TryGhost/Ghost-Admin.git
 
