@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layouts/default'
-import Icon from '../components/global/icon'
-import { Spirit } from '../components/spirit-styles'
-import Box from '../components/layouts/partials/box'
-import MetaData from '../components/layouts/partials/meta-data'
+import { Layout } from '../components/common/layout'
+import { Icon, Box } from '../components/common'
+import { Spirit } from '../styles/spirit-styles'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 class SetupBox extends React.Component {
     render() {
@@ -33,9 +32,9 @@ SetupBox.propTypes = {
 class SetupIndexPage extends React.Component {
     render() {
         // Add meta title and descriptionf or this page here to overwrite the site meta data as set in our config
-        const title = `Setup Guides - Ghost`
-        const description = `All the tools to get started with Ghost: self-hosted, development and premium hosted install guides.`
-        const imageUrl = `https://unsplash.com/photos/RPT3AjdXlZc`
+        const title = `How To Install Ghost: Setup & Configuration - Open Source Publishing`
+        const description = `All the tools you need to get started with Ghost 👉Self-hosted install & setup, local install guide for development, contribution guidelines & premium hosted services!`
+        const imageUrl = getMetaImageUrls()
 
         return (
             <>
@@ -47,7 +46,7 @@ class SetupIndexPage extends React.Component {
                     description={description || this.props.data.site.siteMetadata.description}
                     image={imageUrl}
                 />
-                <Layout title="API" mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
+                <Layout mainClass="bg-whitegrey-l2 pb-vw3" bodyClass="bg-white">
                     <section className="bg-setup">
                         <div className={ Spirit.page.xl + `tc-ns pt-vw6 pt-vw5-ns pb-vw5 white` }>
                             <h1 className={ Spirit.sectionHeading + `gh-integration-header-shadow` }>Setup Guide</h1>

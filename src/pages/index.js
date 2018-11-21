@@ -3,12 +3,11 @@ import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import Icon from '../components/global/icon'
-import Layout from '../components/layouts/default'
-import { Spirit } from '../components/spirit-styles'
-import Box from '../components/layouts/partials/box'
-import MetaData from '../components/layouts/partials/meta-data'
-import HomeHeader from '../components/layouts/partials/home-header'
+import { Icon, Box } from '../components/common'
+import { Layout } from '../components/common/layout'
+import { HomeHeader } from '../components/home'
+import { Spirit } from '../styles/spirit-styles'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 import homeIllustration from '../images/home-illustration.svg' // eslint-disable-line no-unused-vars
 
@@ -49,7 +48,7 @@ class IndexPage extends React.Component {
         // Add meta title and descriptionf or this page here to overwrite the site meta data as set in our config
         const title = `Ghost Docs`
         const description = `Get familiar with Ghost - the open source professional publishing platform.  Install guides, tutorials, API docs and FAQs.`
-        const imageUrl = `https://unsplash.com/photos/RPT3AjdXlZc`
+        const imageUrl = getMetaImageUrls()
 
         return (
             <>
@@ -62,7 +61,6 @@ class IndexPage extends React.Component {
                     image={imageUrl}
                 />
                 <Layout
-                    title="Home"
                     headerDividerStyle="shadow"
                     bodyClass="bg-white"
                     mainClass="bg-whitegrey-l2 pb-vw6 pb-vw3-ns"
@@ -125,26 +123,26 @@ class IndexPage extends React.Component {
                                 All your favourite apps and tools, integrated with Ghost. <Link to="/integrations/" className="blue link din nb1 mt2 mt0-ns hover-underline-blue"><span className="flex items-center fw5">Browse all integrations <Icon name="arrow-right" className="w3 h3 ml1 fill-blue" /></span></Link>
                             </p>
                             <div className="grid-integrations-index mt4 mt6-l f8">
-                                <Box to="/integrations/zapier/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/zapier.png" alt="Zapier" />
+                                <Box to="/integrations/zapier/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/zapier.png" alt="Zapier" />
                                     Zapier</Box>
-                                <Box to="/integrations/disqus/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/disqus.svg" alt="Disqus" />
+                                <Box to="/integrations/disqus/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/disqus.svg" alt="Disqus" />
                                     Disqus</Box>
-                                <Box to="/integrations/slack/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/slack.png" alt="Slack" />
+                                <Box to="/integrations/slack/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/slack.png" alt="Slack" />
                                     Slack</Box>
-                                <Box to="/integrations/unsplash/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/unsplash.svg" alt="Unsplash" />
+                                <Box to="/integrations/unsplash/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/unsplash.svg" alt="Unsplash" />
                                     Unsplash</Box>
-                                <Box to="/integrations/google-analytics/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/google-analytics.png" alt="Google Analytics" />
+                                <Box to="/integrations/google-analytics/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/google-analytics-1.png" alt="Google Analytics" />
                                     Google Analytics</Box>
-                                <Box to="/integrations/mailchimp/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/mailchimp.png" alt="Mailchimp" />
+                                <Box to="/integrations/mailchimp/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/mailchimp.png" alt="Mailchimp" />
                                     Mailchimp</Box>
-                                <Box to="/integrations/google-amp/" className="flex br4 flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
-                                    <img className="w10 mb1" src="https://docs.ghost.io/content/images/2018/09/amp.jpg" alt="Google AMP" />
+                                <Box to="/integrations/google-amp/" className="flex br4 flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn tc" onWhite="false" elevation="2">
+                                    <img className="w10 mb1" src="https://res.cloudinary.com/tryghost/image/fetch/w_120,h_100,c_fit/https://docs.ghost.io/content/images/2018/09/amp.jpg" alt="Google AMP" />
                                     Google AMP</Box>
                                 <Box to="/integrations/" className="br4 flex flex-column justify-between items-center middarkgrey pa2 pt5 pb5 tdn" onWhite="false" elevation="2">
                                     <Icon name="more" className="w8 nudge-top--6" />

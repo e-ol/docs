@@ -2,11 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import Layout from '../components/layouts/default'
-import { Spirit } from '../components/spirit-styles'
-import Box from '../components/layouts/partials/box'
-import Icon from '../components/global/icon'
-import MetaData from '../components/layouts/partials/meta-data'
+import { Layout } from '../components/common/layout'
+import { Spirit } from '../styles/spirit-styles'
+import { Icon, Box } from '../components/common'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 // import bgapi from '../images/bg-api.svg' // eslint-disable-line no-unused-vars
 
@@ -60,7 +59,7 @@ class APIPage extends React.Component {
         // Add meta title and descriptionf or this page here to overwrite the site meta data as set in our config
         const title = `API Reference - Ghost`
         const description = `Comprehensive documentation of API clients, tools and libraries for working with Ghost.`
-        const imageUrl = `https://unsplash.com/photos/RPT3AjdXlZc`
+        const imageUrl = getMetaImageUrls()
 
         return (
             <>
@@ -72,7 +71,7 @@ class APIPage extends React.Component {
                     description={description}
                     image={ imageUrl }
                 />
-                <Layout title="API" mainClass="bg-whitegrey-l2" bodyClass="bg-white">
+                <Layout mainClass="bg-whitegrey-l2" bodyClass="bg-white">
                     <section className="bg-api-reference">
                         <div className={ Spirit.page.xl + `tc-ns pt-vw6 pt-vw5-ns pb-vw5 white` }>
                             <h1 className={ Spirit.sectionHeading + `gh-integration-header-shadow`}>API Reference</h1>

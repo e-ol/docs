@@ -2,18 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layouts/default'
-import PostCard from '../components/postcard'
-import { Spirit } from '../components/spirit-styles'
-import MetaData from '../components/layouts/partials/meta-data'
-// import SectionHeading from '../components/layouts/partials/section-heading'
+import { Layout } from '../components/common/layout'
+import { PostCard } from '../components/tutorials'
+import { Spirit } from '../styles/spirit-styles'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
 
 class TutorialsPage extends React.Component {
     render() {
         // Add meta title and descriptionf or this page here to overwrite the site meta data as set in our config
         const title = `Tutorials - Ghost`
         const description = `Customise your Ghost publication to suit your needs with practical guides for a variety of use-cases.`
-        const imageUrl = `https://unsplash.com/photos/RPT3AjdXlZc`
+        const imageUrl = getMetaImageUrls(`tutorials`)
 
         const posts = this.props.data.allGhostPost.edges
 
@@ -27,7 +26,7 @@ class TutorialsPage extends React.Component {
                     description={description || this.props.data.site.siteMetadata.description}
                     image={imageUrl}
                 />
-                <Layout title="Tutorials" headerDividerStyle="shadow">
+                <Layout headerDividerStyle="shadow">
                     <div className="bg-tutorials">
                         <div className={ Spirit.page.xl + `pt-vw7 pt-vw1-ns pb-vw1 white` }>
                             <h1 className={ Spirit.h4 + `gh-integration-header-shadow` }>Tutorials</h1>

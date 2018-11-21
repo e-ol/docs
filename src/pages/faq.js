@@ -2,18 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layouts/default'
+import { Layout } from '../components/common/layout'
 import Link from 'gatsby-link'
-import { Spirit } from '../components/spirit-styles'
-import MetaData from '../components/layouts/partials/meta-data'
-import FAQTagList from '../components/layouts/partials/faq-taglist'
+import { Spirit } from '../styles/spirit-styles'
+import { MetaData, getMetaImageUrls } from '../components/common/meta'
+import { FAQTagList } from '../components/faq'
 
 class FAQPage extends React.Component {
     render() {
-        // Add meta title and descriptionf or this page here to overwrite the site meta data as set in our config
+        // Add meta title and description for this page here to overwrite the site meta data as set in our config
         const title = `FAQ - Ghost`
         const description = `Answers to our most popular questions: billing, hosting, troubleshooting and more.`
-        const imageUrl = `https://unsplash.com/photos/RPT3AjdXlZc`
+        const imageUrl = getMetaImageUrls(`faq`)
 
         return (
             <>
@@ -23,9 +23,9 @@ class FAQPage extends React.Component {
                     type="website"
                     title={title}
                     description={description}
-                    image={ imageUrl }
+                    image={imageUrl}
                 />
-                <Layout title="FAQ" headerDividerStyle="shadow">
+                <Layout headerDividerStyle="shadow">
                     <div className="bg-faq bb b--whitegrey">
                         <div className={ Spirit.page.xl + `pt-vw7 pt-vw1-ns pb-vw1` }>
                             <h1 className={ Spirit.h4 + `white`}>Frequently Asked Questions</h1>

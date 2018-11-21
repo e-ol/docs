@@ -12,7 +12,11 @@
     "dev": "gatsby develop",
     "lint": "eslint . --ext .js --cache",
     "posttest": "yarn lint",
-    "test": "NODE_ENV=testing mocha -- $(find test -name '*.test.js')",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test dev http://localhost:8000 cy:run",
+    "test": "NODE_ENV=testing mocha -- $(find test -name '*.test.js') && yarn test:e2e:ci",
     "preship": "yarn test",
     "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi",
     "master": "git pull -r origin master --autostash && cd content/api/v2 && git pull -r origin master --autostash && cd ../../../ && yarn"
@@ -20,6 +24,8 @@
   "devDependencies": {
     "autoprefixer": "9.2.0",
     "cssnano": "4.1.4",
+    "cypress": "^3.1.1",
+    "cypress-testing-library": "^2.3.3",
     "eslint": "5.7.0",
     "eslint-plugin-ghost": "0.0.27",
     "eslint-plugin-react": "^7.11.1",
@@ -31,7 +37,8 @@
     "postcss-custom-properties": "8.0.8",
     "postcss-easy-import": "^3.0.0",
     "should": "^13.2.3",
-    "sinon": "7.0.0"
+    "sinon": "7.0.0",
+    "start-server-and-test": "^1.7.9"
   },
   "dependencies": {
     "algolia-html-extractor": "^0.0.1",
